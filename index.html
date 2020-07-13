@@ -1,0 +1,25 @@
+<table style="width: auto !important; margin-left: auto; margin-right: auto;">
+  <thead>
+    <tr>
+      <th style="text-align:left; width:110px">
+        Order Number
+      </th>
+      <th style="text-align:center; width:110px;">
+        Item Count
+      </th>
+      <th style="text-align:center; width:75px;">
+        Order Amount
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each Attributes.OrderNumber}}
+    <tr>
+      <td style="text-align:left;">{{this}}</td>
+      <td style="text-align:center;">{{#with (lookup ../Attributes.ItemCount @index)}}{{this}}{{/with}}</td>
+      <td style="text-align:center;">${{#with (lookup ../Attributes.OrderAmount @index)}}{{this}}{{/with}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
